@@ -12,9 +12,9 @@ jobs:
       uses: actions/checkout@v2
       with:
           ref: 'main'
-    - name: Build image
-      run: docker build -t oeken/golang-ubuntu:1.17.6 .
+    # - name: Build image
+    #   run: docker build -t oeken/golang-ubuntu:1.17.6 .
     - name: Docker login
       env:
         ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      run: docker login --username -oeken --password "$ACCESS_TOKEN"
+      run: docker login -u -oeken -p "$ACCESS_TOKEN"
