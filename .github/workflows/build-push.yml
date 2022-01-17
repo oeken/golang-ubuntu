@@ -17,4 +17,4 @@ jobs:
     - name: Docker login
       env:
         ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      run: docker login --username -eken --password "$ACCESS_TOKEN"
+      run: docker login --username -oeken --password "$ACCESS_TOKEN"
