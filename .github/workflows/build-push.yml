@@ -1,4 +1,4 @@
-name: Build and push Go Ubuntu image
+name: Build and push docker image
 
 on:
   push:
@@ -15,6 +15,7 @@ jobs:
     # - name: Build image
     #   run: docker build -t oeken/golang-ubuntu:1.17.6 .
     - name: Docker login
-      env:
-        ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      run: docker login -u -oeken -p "$ACCESS_TOKEN"
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
