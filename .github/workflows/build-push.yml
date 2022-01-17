@@ -19,7 +19,5 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     - name: Build image
       run: docker build -t oeken/golang-ubuntu:1.17.6 .
-    # - name: Push image
-    #   run: docker push oeken/golang-ubuntu:1.17.6
-
-
+    - name: Push image
+      run: docker push oeken/golang-ubuntu:1.17.6
