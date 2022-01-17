@@ -14,5 +14,9 @@ jobs:
           ref: 'main'
     - name: Build image
       run: docker build -t oeken/golang-ubuntu:1.17.6 .
-    - name: Push image
-      run: docker push oeken/golang-ubuntu:1.17.6
+    - name: Docker login
+      run: docker login --username -eken --password-stdin
+      with:
+        accesToken: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+    # - name: Push image
+      # run: docker push oeken/golang-ubuntu:1.17.6
