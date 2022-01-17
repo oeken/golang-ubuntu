@@ -15,6 +15,6 @@ jobs:
     - name: Build image
       run: docker build -t oeken/golang-ubuntu:1.17.6 .
     - name: Docker login
-      with:
-        accesToken: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      run: docker login --username -eken --password-stdin
+      env:
+        ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      run: docker login --username -eken --password "$ACCESS_TOKEN"
